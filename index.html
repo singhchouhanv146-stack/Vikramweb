@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorry Shubhi 💖</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #ffe6f7, #e0e7ff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .card {
+      background: rgba(255,255,255,0.95);
+      width: 90%;
+      max-width: 520px;
+      padding: 45px 35px 70px;
+      border-radius: 30px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+      text-align: center;
+      position: relative;
+      animation: fadeIn 1.2s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      color: #7a4cff;
+      font-size: 2.6rem;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .heart {
+      font-size: 3.5rem;
+      margin: 15px 0;
+      animation: pulse 1.6s infinite;
+      filter: drop-shadow(0 0 15px rgba(255,105,180,0.6));
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    p {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      margin: 14px 0;
+      color: #333;
+    }
+    .highlight { color: #ff4f9a; font-weight: 500; }
+    .buttons {
+      margin-top: 30px;
+      height: 130px;
+      position: relative;
+    }
+    button {
+      padding: 14px 32px;
+      font-size: 1.05rem;
+      border: none;
+      border-radius: 35px;
+      cursor: pointer;
+      position: absolute;
+      transition: transform 0.2s ease;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    }
+    .yes {
+      background: linear-gradient(135deg, #7a4cff, #ff4f9a);
+      color: white;
+      left: 50%;
+      transform: translateX(-120%);
+    }
+    .no {
+      background: #ff6b6b;
+      color: white;
+      left: 50%;
+      transform: translateX(20%);
+    }
+    #thankYou {
+      margin-top: 30px;
+      font-size: 1.25rem;
+      color: #7a4cff;
+      font-weight: 500;
+      display: none;
+      animation: fadeIn 0.8s ease;
+    }
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      animation: fall 3s linear infinite;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sorry Shubhi 💖</h1>
+    <div class="subtitle">This page is made only for a very beautiful girl</div><div class="heart">💖</div>
+
+<p>
+  Hey <span class="highlight">Shubhi</span>,
+</p>
+<p>
+  I know I made a mistake and I truly regret it.
+  Hurting you was never my intention.
+</p>
+<p>
+  You are an <span class="highlight">amazing and beautiful soul</span>,
+  and you mean more to me than words can explain.
+</p>
+<p><strong>Can you please forgive me?</strong></p>
+
+<div class="buttons" id="btnArea">
+  <button class="yes" onclick="celebrate()">Yes 💜</button>
+  <button class="no" id="noBtn">No 😶</button>
+</div>
+
+<div id="thankYou">🎉 Thank you Shubhi ✨ I promise to do better and always respect your feelings 💖</div>
+
+  </div>  <script>
+    const noBtn = document.getElementById('noBtn');
+    const area = document.getElementById('btnArea');
+
+    function moveNo() {
+      const maxX = area.clientWidth - noBtn.offsetWidth;
+      const maxY = area.clientHeight - noBtn.offsetHeight;
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    }
+    noBtn.addEventListener('mouseover', moveNo);
+    noBtn.addEventListener('click', moveNo);
+
+    function celebrate() {
+      document.getElementById('thankYou').style.display = 'block';
+      for (let i = 0; i < 45; i++) {
+        const conf = document.createElement('div');
+        conf.className = 'confetti';
+        conf.style.left = Math.random() * 100 + 'vw';
+        conf.style.background = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        conf.style.animationDuration = 2 + Math.random() * 2 + 's';
+        document.body.appendChild(conf);
+        setTimeout(() => conf.remove(), 4000);
+      }
+    }
+  </script></body>
+</html>
